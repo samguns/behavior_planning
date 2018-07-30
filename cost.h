@@ -1,9 +1,17 @@
 #ifndef COST_H
 #define COST_H
-#include <vector>
+#include "vehicle.h"
 
-float goal_distance_cost(int goal_lane, int intended_lane, int final_lane, float distance_to_goal);
+using namespace std;
 
-float inefficiency_cost(int target_speed, int intended_lane, int final_lane, std::vector<int> lane_speeds);
+float calculate_cost(const Vehicle & vehicle, const map<int, vector<Vehicle>> & predictions, const vector<Vehicle> & trajectory);
+
+float goal_distance_cost(const Vehicle & vehicle,  const vector<Vehicle> & trajectory,  const map<int, vector<Vehicle>> & predictions, map<string, float> & data);
+
+float inefficiency_cost(const Vehicle & vehicle, const vector<Vehicle> & trajectory, const map<int, vector<Vehicle>> & predictions, map<string, float> & data);
+
+float lane_speed(const map<int, vector<Vehicle>> & predictions, int lane);
+
+map<string, float> get_helper_data(const Vehicle & vehicle, const vector<Vehicle> & trajectory, const map<int, vector<Vehicle>> & predictions);
 
 #endif

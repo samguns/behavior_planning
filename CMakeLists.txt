@@ -3,4 +3,4 @@ project(behavior_planning)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(behavior_planning main.cpp cost.cpp cost.h)
+add_executable(behavior_planning main.cpp cost.cpp cost.h vehicle.cpp vehicle.h road.cpp road.h)
